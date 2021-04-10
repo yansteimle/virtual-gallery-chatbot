@@ -6,7 +6,7 @@ Course project created by Yan Steimle (7685882) for the course CSI 5180 at the U
 
 - `gallery-assistant`: this folder contains the code and data for the chatbot (including the custom action server). The SQLite database is stored in the file `gallery.db`. The final trained model is in the subdirectory `models`.
 - `virtual-gallery`: this folder contains the code, html files, and sample images for the rudimentary Virtual Gallery web application (which does absolutely nothing other than display html pages). The web application uses flask and (at least on my computer) is accessible at the following address when run locally: http://127.0.0.1:5000/ 
-- `project-presentation.pdf`: this file contains the slides for the presentation (including any links to resources).
+- `project-presentation-Yan-Steimle.pdf`: this file contains the slides for the presentation (including any links to resources).
 
 ## Set-up and installation
 
