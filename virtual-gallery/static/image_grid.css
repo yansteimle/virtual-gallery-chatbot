@@ -1,0 +1,59 @@
+/* Style page for displaying images (of artwork or of artist profile pictures) in a grid */
+
+.image-grid {
+	margin: 20px 20px;
+}
+
+.image-grid .error-msg {
+	border-radius: 5px;
+	background-color: #ff9a90; /* light salmon pink */
+	border: 2px solid #d00000; /* Boston University red */
+	margin: auto;
+	text-align: center;
+	padding: 15px;
+	max-width: 600px;
+}
+
+.image-container {
+	float: left;
+}
+
+.image-item {
+	margin: 10px;
+	position: relative;
+	min-height: 350px;
+	border: 2px solid #797B84;
+	text-align: center;
+}
+
+.image-item img {
+	width: auto;
+	height: 250px;
+}
+
+.image-desc {
+	padding: 5px;
+	text-align: left;
+	min-height: 100px;
+}
+
+.image-desc ul {
+	padding-left: 0;
+	list-style-type: none;
+	margin: 0;
+}
+
+.image-desc ul li.artwork-title {
+	color: #141301;
+	font-size: 20px;
+}
+
+.image-desc ul li.artist-name {
+	color: #141301;
+	font-size: 15px;
+}
+
+.image-desc ul li.medium, .image-desc ul li.category {
+	color: #797B84;
+	font-size: 15px;
+}

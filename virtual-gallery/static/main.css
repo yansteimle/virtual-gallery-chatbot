@@ -1,0 +1,175 @@
+/* External style sheet for the main style of the web application */
+html, body {
+	font-family: Verdana, Geneva, sans-serif;
+	padding-top: 40px; /* So that content does not go beneath navigation bar */
+}
+
+/* colours */
+.platinum { background-color: #e6e7e8 }
+.timberwolf { background-color: #d8d8d8 }
+.sliversand { background-color: #c5c5c5 }
+/*.lightgrey { background-color: #CFC7D2 }*/
+.trolleygrey { background-color: #797B84 }
+.stormcloud { background-color: #56666b }
+.onyx { background-color: #37393A }
+.jet { background-color: #353831 }
+.smokyblack { background-color: #141301 }
+.imperialblue { background-color: #1B4965 }
+
+.btn {
+	background-color: #c5c5c5;
+	color: #37393A;
+	padding: 5px;
+	border-radius: 15px;
+	text-align: center;
+	line-height: 40px;
+	width: 100px;
+	margin: auto;
+}
+.btn:hover {
+	background-color: #37393A;
+	color: #c5c5c5;
+	cursor: pointer;
+}
+
+a.btn {
+	text-decoration: none;
+	text-transform: none;
+	display: block;
+}
+
+.wide-btn { /* for wider buttons if 100px is not wide enough to have all of the text on one line */
+	width: 200px;
+}
+
+/* top navigation bar and art categories navigation bar */
+.nav {
+	background-color: #37393A;
+	color: #c5c5c5;
+	overflow: auto;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 50;
+}
+.artcats {
+	/*box-sizing: border-box;*/
+	width: 100%;
+	text-align: center;
+	margin: auto;
+	background-color: #c5c5c5;
+	color: #37393A;
+}
+.nav ul, .artcats ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 20px;
+}
+.nav ul li, .artcats ul li  {
+	display: inline;
+	margin: 0;
+	padding: 20px;
+}
+.nav ul li:hover {
+	background-color: #c5c5c5;
+	color: #37393A;
+	cursor: pointer;
+}
+.artcats ul li:hover {
+	background-color: #37393A;
+	color: #c5c5c5;
+	cursor: pointer;
+}
+.nav ul a {
+	text-decoration: none;
+	text-transform: none;
+	color: #c5c5c5;
+}
+.artcats ul a {
+	text-decoration: none;
+	text-transform: none;
+	color: #37393A;
+}
+
+.left { float: left; }
+.right { float:	right; }
+.current { /* To indicate which page we are currently on */
+	background-color: #56666b;
+	color: #e6e7e8;
+}
+.nav-highlight {
+	background-color:
+}
+
+/* Images */
+div.gallery {
+	/*display: flex;
+	flex-direction: row;*/
+	overflow-x: auto;
+	text-align: center;
+	/*align-content: center;*/
+	min-height: 250px;
+	margin-bottom: 10px;
+}
+div.galleryitem {
+	display: inline-block;
+	margin: 5px;
+	border: 2px solid #797B84;
+	/*width: 180px;*/
+	height: 250px;
+}
+
+div.galleryitem img {
+	/*width: 100%;
+	height: auto;*/
+	width: auto;
+	height: 200px;
+}
+div.imagedesc {
+	padding: 10px;
+	text-align: center;
+}
+div.gallery .error-msg {
+	border-radius: 5px;
+	background-color: #ff9a90; /* light salmon pink */
+	border: 2px solid #d00000; /* Boston University red */
+	margin: 40px auto auto auto;
+	text-align: center;
+	padding: 15px;
+	max-width: 600px;
+}
+
+/* Sections */
+div.horizontal-section {
+	font-family: Verdana, Geneva, sans-serif;
+	/*display: block;*/
+}
+div.horizontal-section h1 {
+	display: block;
+	text-align: center;
+	font-size: 1.2em;
+}
+
+/* Text positioning */
+.center { text-align: center; }
+
+.vertical-break {
+	clear: both;
+	height: 5px;
+}
+
+/* For bidding-portal page */
+.box {
+	border: 2px solid #718794;
+	border-radius: 5px;
+	padding: 15px;
+	margin: auto;
+	text-align: center;
+	width: 600px;
+	/*background-color: #CFC7D2;*/
+}
+
+p.title {
+	font-size: 2em;
+	margin-bottom: 300px;
+}
