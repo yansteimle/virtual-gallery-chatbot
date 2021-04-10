@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Virtual Gallery</title>
+    <link rel="stylesheet" type="text/css" href="static/main.css">
+</head>
+<body>
+    <nav class="nav" id="navBar">
+        <ul class="left">
+            <a href="/"><li id="navHome">Virtual Gallery</li></a>
+        </ul>
+        <ul class="right">
+            <a href="/search"><li id="navArtwork">Artwork</li></a>
+            <a href="/bidding-portal"><li id="navPortal">Bidding Portal</li></a>
+            <a href="/"><li id="navLogin">Login</li></a>
+        </ul>
+    </nav>
+    <div class="horizontal-section">
+		<!-- Featured/New Artists -->
+		<h1>Featured Artists</h1>
+		<div class="gallery" id="featuredArtists">
+            <div class="galleryitem"><img src="static/images/2_profile_pic.jpg">
+                <div class="imagedesc">Bob Robson</div>
+            </div>
+            <div class="galleryitem"><img src="static/images/3_profile_pic.jpg">
+                <div class="imagedesc">Charlie Charlton</div>
+            </div>
+            <div class="galleryitem"><img src="static/images/4_profile_pic.jpg">
+                <div class="imagedesc">Eve Evans</div>
+            </div>
+        </div>
+	</div>
+    <div class="horizontal-section">
+		<!-- Art categories -->
+		<h1>Explore Art Categories</h1>
+		<div class="artcats">
+            <ul>
+                <a href="/search"><li id="drawingCat">Drawing</li></a>
+                <a href="/search"><li id="paintingCat">Painting</li></a>
+                <a href="/search"><li id="sculptureCat">Sculpture</li></a>
+                <a href="/search"><li id="photographyCat">Photography</li></a>
+                <a href="/search"><li id="allCats">All Artwork</li></a>
+            </ul>
+        </div>
+	</div>
+</body>
+</html>
