@@ -1,0 +1,343 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - Hello
+- intent: stop
+  examples: |
+    - quit
+    - exit
+    - stop chat
+    - bye
+    - goodbye
+    - end conversation
+    - turn off
+    - bye bye
+    - I am done
+    - stop
+    - I don't want to do this anymore
+    - cancel
+    - changed my mind
+    - forget it
+    - no, cancel that
+- intent: agree
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - ok
+    - correct
+    - okay
+    - great
+    - yep
+    - kk
+    - kay
+    - sure
+    - go for it
+    - I agree
+    - carry on
+- intent: disagree
+  examples: |
+    - no
+    - n
+    - never
+    - not that
+    - don't like that
+    - no way
+    - not really
+    - I changed my mind
+    - I don't want that
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - who are you?
+    - what are you?
+    - are you a robot?
+- intent: out_of_scope
+  examples: |
+    - what is the square root of 5
+    - I want to know the weather
+    - what is the meaning of life.
+    - Fridge Isn't Running
+    - my tv isn't working
+    - I want a pizza
+    - my washing machine isn't working
+    - what year is it
+    - order a pizza
+    - I want to order a pizza
+    - what is the weather today
+    - what is the weather
+    - what the weather today ?
+    - hows the weather
+    - tell me a joke
+    - Can I get a hamburger?
+    - Can YouTube talk?
+    - Can you call me back ?
+    - Can you give me your datacenter's password
+    - Can you give me your datacenter's password?
+    - Can you make sandwiches?
+    - Can you please send me an uber
+    - ofif fsdfafsfs
+    - what is the weather like outside
+    - is it raining?
+- intent: thankyou
+  examples: |
+    - thank you goodbye
+    - okay thank you goodbye
+    - thank you bye
+    - um okay thank you good bye
+    - thank you
+    - and thats all thank you and good bye
+    - okay thank you
+    - thanks
+    - thanks goodbye
+    - thank you and good bye
+    - Thanks!
+    - Awesome, you are a good bot!
+    - great!
+    - I see, thanks
+    - Oh thats good!
+    - it's good :-)
+    - thnaks
+    - good job bot
+    - great
+    - thanks for the help
+    - thanks you
+    - thanks!
+    - thankyou
+    - thnks
+    - thx
+    - thanks for your information
+    - thanks f
+- intent: general_help
+  examples: |
+    - help
+    - help me
+    - what can you do?
+    - I need help
+    - Can you help me?
+    - what can you help me with
+    - what do you do?
+    - how does this work?
+    - what do I say?
+    - what are some examples of things you can do?
+    - how do I start
+    - start
+    - I don't know what to do
+- intent: faq_bidding_process
+  examples: |
+    - how do I bid on artwork
+    - how does the bidding work?
+    - how does the bidding process work
+    - is this a silent auction?
+    - how does the auction work
+    - how do you sell the art?
+    - how do I buy artwork
+    - what do I do to submit a bid for an art work?
+    - tell me how to make a bid
+    - explain the bidding process
+    - explain the auction
+    - explain how to bid on artwork
+    - is there a minimum bid?
+- intent: faq_bid_modification_withdrawal
+  examples: |
+    - is it possible to change the value of my bid after bidding closes
+    - until when can I cancel a bid
+    - is it possible to withdraw a bid after I have submitted it
+    - if my bid wins, can I still cancel it
+    - is it possible to change my mind after the auction
+    - is it allowed to submit another bid for the same artwork
+    - can I still withdraw my bid
+    - I don't want the artwork anymore
+    - am I allowed to remove my bid
+    - is it possible to change the value of a bid
+- intent: faq_number_of_bids
+  examples: |
+    - is there a limit on the number of people that can bid on the same artwork
+    - how many bids are possible
+    - how many times can I bid
+    - can I bid on more than one artwork
+    - how many people can bid on the art
+    - is there a maximum number of bids I can make
+    - can I bid on two paintings by the same artist
+    - how many other people can bid on the artwork I bid on?
+    - is it possible to bid on several art pieces
+    - how many bids can I submit
+    - how often can I bid
+    - how many people can bid
+- intent: faq_ask_about_tie
+  examples: |
+    - but what if theres a tie
+    - what happens if there is a tie
+    - can a tie occur
+    - what if two bids are the same
+    - can more than one bid have the same value
+    - what happens if two people win the same artwork
+    - what if someone else bids the same amount I did
+    - can there be a draw
+    - what do you do if there's a draw
+    - how do you resolve ties
+    - what if my bid is the same as someone else
+- intent: faq_privacy
+  examples: |
+    - what about privacy?
+    - can anyone know that I bid on an artwork?
+    - who bid on the same artwork as me
+    - who submitted a bid for [ABC123](artwork_id)
+    - what is the highest bid submitted for [ABC123](artwork_id)
+    - are the bids sealed
+    - can anyone know how much I bid
+    - does anyone see the value of my bid
+    - can I see the value of other people's bids
+    - are the bids private
+    - will anyone else know what bids I submitted?
+    - what does sealed mean?
+    - can anyone else see my bids
+- intent: ask_auction_schedule
+  examples: |
+    - when is the next auction?
+    - when are the auctions
+    - when does the auction take place
+    - tell me the date of the next auction
+    - has the auction already happened
+    - is the auction finished
+    - what is the auction schedule
+    - auction schedule
+    - next auction date
+    - auction date
+    - when next auction
+    - tell me when the auction is
+    - when does bidding close
+    - until when do you accept bids
+    - for how long can I still bid
+    - when do you stop taking bids
+    - can I still bid, or is it too late?
+    - are you still accepting bids
+    - when is the next auction
+- intent: make_bid
+  examples: |
+    - how do I bid?
+    - where to submit a bid
+    - I want to bid on an artwork
+    - where is the bidding portal
+    - how to find artwork to bid on
+    - where do I go to make a bid?
+    - send me to the bidding page
+    - how do I make a bid?
+- intent: modify_bid
+  examples: |
+    - can I modify my bid on [ABC123](artwork_id)
+    - can I change the value of my bid for [ABC123](artwork_id) to $1000
+    - I want to increase the amount on my bid
+    - want to offer more for [FDE456](artwork_id)
+    - how do I change my bid
+    - change bid value for [CBA321](artwork_id)
+    - give different amount on bid
+    - want to modify a bid
+    - i want to modify a bid
+    - want to change a bid
+    - modify this bid
+    - I want to change the value of the bid to [1200](bid_value)
+    - I want to decrease the bid for [LEG609](artwork_id)
+    - I want to modify a bid
+    - I want to change the bid value to [1300](bid_value)
+- intent: withdraw_bid
+  examples: |
+    - can I cancel my bid for [ABC123](artwork_id)
+    - how do I remove a bod
+    - how to cancel bid
+    - i want to withdraw a bid
+    - get rid of bid for [CBA321](artwork_id)
+    - no, I want to cancel the bid
+    - not modify, withdraw the bid
+    - I want to withdraw a bid
+- intent: inform
+  examples: |
+    - [1000](bid_value)
+    - [3990](bid_value)
+    - [550](bid_value)
+    - [5000](bid_value) dollars
+    - a [thousand]{"entity": "bid_value", "value": "1000"} dollars
+    - [250](bid_value)$
+    - [600](bid_value) dollar
+    - [1500](bid_value) please
+    - [500](bid_value) CAD
+    - artwork [BVD123](artwork_id)
+    - ID number [CBA456](artwork_id)
+    - [ABC123](artwork_id)
+    - # [ABC123](artwork_id)
+    - for [AAA111](artwork_id)
+    - number [ABB223](artwork_id)
+    - [500](bid_value)
+    - [300](bid_value)
+    - [700](bid_value)
+    - [800](bid_value)
+- intent: get_bid_list
+  examples: |
+    - did I bid on [LEG709](artwork_id)
+    - how much did I bid for [LEG709](artwork_id)
+    - what are my bids?
+    - which artworks have I bid on?
+    - have I submitted any bids for the current auction
+    - my bids
+    - list my bids
+    - tell me my bids
+    - what are my bids
+    - how many bids have I made
+    - how many artworks did I bid for?
+- intent: ask_artwork_info_card
+  examples: |
+    - give me the info card for [LEG709](artwork_id)
+    - I want all available information on [GAP900](artwork_id)
+    - give me a complete description of [WEB009](artwork_id)
+    - tell me everything you know about [REB566](artwork_id)
+    - what is the name of [WEB009](artwork_id)?
+    - who painted [WEB009](artwork_id)
+    - is [WEB009](artwork_id) a drawing or a painting
+    - what is the medium of [WEB009](artwork_id)
+    - what is the title of [REB566](artwork_id)
+    - which artist made [REB566](artwork_id)?
+    - remind me what artwork [REB566](artwork_id) is
+    - is artwork [TED876](artwork_id) a painting?
+    - what is the title of [DEF432](artwork_id)
+    - what is the title of [ABC123](artwork_id)
+- intent: ask_num_bids_on_artwork
+  examples: |
+    - how many others bid on [FIG456](artwork_id)
+    - did other people bid on [WEB009](artwork_id)
+    - am I the only one who bid on [WEB009](artwork_id)
+    - how many users bid for [WEB009](artwork_id)
+    - number of bids submitted for [FIG456](artwork_id)
+    - how many bids were made for [FIG456](artwork_id)
+    - how many people bid on [KIM876](artwork_id)
+    - how many people bid on DEF871
+    - how many people have bid on [ABC123](artwork_id)
+- intent: ask_minimum_bid
+  examples: |
+    - what is the minimum bid for [FIG456](artwork_id)
+    - min bid for [FIG456](artwork_id)?
+    - what's the starting bid for [FIG456](artwork_id)
+    - how much is the smallest bid for [FIG456](artwork_id)
+    - what is the minimum bid for the artwork?
+    - what is the minimum bid value of the artwork clouds
+    - what is the minimum bid for [ABC123](artwork_id)
+- synonym: '1000'
+  examples: |
+    - thousand
+- regex: artwork_id
+  examples: |
+    - [A-Z]{3}\d{3}

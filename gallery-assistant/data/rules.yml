@@ -1,0 +1,169 @@
+version: "2.0"
+
+rules:
+
+- rule: Ask user to rephrase when low NLU confidence (default reply when can't identify intent)
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
+
+- rule: Answer out of scope questions
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+- rule: Greet user and give general instructions when user starts chat
+  conversation_start: true
+  steps:
+  - intent: greet
+  - action: utter_welcome
+  - action: utter_general_help
+  - action: utter_help_options
+
+- rule: Reply to greeting (not at start) and ask how can help (with buttons)
+  conversation_start: false
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_help_options
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Say goodbye when user wants to stop (and is not in a loop)
+  condition:
+  - active_loop: null
+  steps:
+    - intent: stop
+    - action: utter_goodbye
+
+- rule: Give general help
+  steps:
+    - intent: general_help
+    - action: utter_general_help
+    - action: utter_help_options
+
+- rule: Graciously accept thanks
+  steps:
+    - intent: thankyou
+    - action: utter_accept_thanks
+
+- rule: Answer faq about bidding process
+  steps:
+    - intent: faq_bidding_process
+    - action: utter_faq_bidding_process
+
+- rule: Answer question about auction schedule
+  steps:
+    - intent: ask_auction_schedule
+    - action: action_auction_schedule
+
+- rule: Answer faq about privacy
+  steps:
+    - intent: faq_privacy
+    - action: utter_faq_privacy
+
+- rule: Answer faq about modifying/withdrawing bid
+  steps:
+    - intent: faq_bid_modification_withdrawal
+    - action: utter_faq_bid_modification_withdrawal
+
+- rule: Answer faq about number of bids per artwork or per person
+  steps:
+    - intent: faq_number_of_bids
+    - action: utter_faq_number_of_bids
+
+- rule: Answer faq about a possible tie between bids
+  steps:
+    - intent: faq_ask_about_tie
+    - action: utter_faq_ask_about_tie
+
+- rule: Redirect to search page or bidding portal on request
+  steps:
+    - intent: make_bid
+    - action: utter_bid_search_links
+
+- rule: Activate modify bid form
+  steps:
+    - intent: modify_bid
+    - action: modify_bid_form
+    - active_loop: modify_bid_form
+
+- rule: Successfully submit modify bid form
+  condition:
+    - active_loop: modify_bid_form
+  steps:
+    - action: modify_bid_form
+    - active_loop: null
+    - slot_was_set:
+        - requested_slot: null
+    - action: action_submit_modify_bid
+
+- rule: User wants to withdraw bid, so redirect to bidding portal
+  steps:
+    - intent: withdraw_bid
+    - action: utter_withdraw_bid
+
+- rule: User asks for list of bids
+  steps:
+    - intent: get_bid_list
+    - action: action_user_bid_list
+
+- rule: Give detailed information about an artwork when asked. Part1 - start loop to collect ID code
+  condition:
+    # ensure no other loop is currently active (that might cause problems)
+    - active_loop: null
+  steps:
+    - intent: ask_artwork_info_card
+    - action: artwork_info_card_form
+    - active_loop: artwork_info_card_form
+
+- rule: Give detailed information about an artwork when asked. Part2 - give answer
+  condition:
+    - active_loop: artwork_info_card_form
+  steps:
+    - action: artwork_info_card_form
+    - active_loop: null
+    - slot_was_set:
+        - requested_slot: null
+    - action: action_artwork_info_card
+
+- rule: Give information about number of bids made for an artwork when asked. Part1 - start loop to collect ID code
+  condition:
+    # ensure no other loop is currently active (that might cause problems)
+    - active_loop: null
+  steps:
+    - intent: ask_num_bids_on_artwork
+    - action: num_bids_on_artwork_form
+    - active_loop: num_bids_on_artwork_form
+
+- rule: Give information about number of bids made for an artwork when asked. Part2 - give answer
+  condition:
+    - active_loop: num_bids_on_artwork_form
+  steps:
+    - action: num_bids_on_artwork_form
+    - active_loop: null
+    - slot_was_set:
+        - requested_slot: null
+    - action: action_num_bids_on_artwork
+
+- rule: Tell the user the minimum bid amount for an artwork. Part1 - start loop to collect ID code
+  condition:
+    # ensure no other loop is currently active (that might cause problems)
+    - active_loop: null
+  steps:
+    - intent: ask_minimum_bid
+    - action: minimum_bid_form
+    - active_loop: minimum_bid_form
+
+- rule: Tell the user the minimum bid amount for an artwork. Part2 - give answer
+  condition:
+    - active_loop: minimum_bid_form
+  steps:
+    - action: minimum_bid_form
+    - active_loop: null
+    - slot_was_set:
+        - requested_slot: null
+    - action: action_minimum_bid

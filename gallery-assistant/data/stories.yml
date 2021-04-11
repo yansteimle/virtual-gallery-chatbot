@@ -1,0 +1,26 @@
+version: "2.0"
+stories:
+- story: User asks to stop in the middle of modifying a bid
+  steps:
+  - intent: modify_bid
+    entities:
+    - artwork_id: ABC123
+  - slot_was_set:
+    - artwork_id: ABC123
+  - action: modify_bid_form
+  - active_loop: modify_bid_form
+  - slot_was_set:
+    - artwork_id: ABC123
+  - slot_was_set:
+    - artwork_id: ABC123
+  - slot_was_set:
+    - requested_slot: bid_value
+  - intent: stop
+  - slot_was_set:
+    - artwork_id: ABC123
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_confirm_request_cancel
+
