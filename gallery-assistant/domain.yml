@@ -1,0 +1,223 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: []
+- stop:
+    use_entities: []
+- agree:
+    use_entities: []
+- disagree:
+    use_entities: []
+- bot_challenge:
+    use_entities: []
+- general_help:
+    use_entities: []
+- thankyou:
+    use_entities: []
+- out_of_scope:
+    use_entities: []
+- modify_bid:
+    use_entities: true
+- inform:
+    use_entities: true
+- ask_auction_schedule:
+    use_entities: []
+- nlu_fallback:
+    use_entities: true
+- faq_privacy:
+    use_entities: []
+- faq_ask_about_tie:
+    use_entities: []
+- faq_number_of_bids:
+    use_entities: []
+- faq_bidding_process:
+    use_entities: []
+- faq_bid_modification_withdrawal:
+    use_entities: []
+- make_bid:
+    use_entities: []
+- ask_artwork_info_card:
+    use_entities:
+    - artwork_id
+- ask_num_bids_on_artwork:
+    use_entities:
+    - artwork_id
+- get_bid_list:
+    use_entities: []
+- ask_minimum_bid:
+    use_entities:
+    - artwork_id
+- withdraw_bid:
+    use_entities: []
+entities:
+- bid_value
+- artwork_id
+slots:
+  artwork_id:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  bid_value:
+    type: rasa.shared.core.slots.AnySlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  confirm_form:
+    type: rasa.shared.core.slots.CategoricalSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+    values:
+    - yes
+    - no
+  requested_slot:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+responses:
+  utter_greet:
+  - text: Hello.
+  - text: Greetings.
+  utter_goodbye:
+  - text: Goodbye.
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  - text: I am Gabby, a Rasa bot.
+  utter_welcome:
+  - text: Hello and welcome to Virtual Gallery. My name is Gabby.
+  - text: Hi, my name is Gabby. Welcome to Virtual Gallery.
+  utter_help_options:
+  - buttons:
+    - payload: /get_bid_list
+      title: my bids
+    - payload: /modify_bid
+      title: modify a bid
+    - payload: /faq_bidding_process
+      title: bidding process
+    - payload: /ask_auction_schedule
+      title: auction schedule
+    text: What can I help you with?
+  - buttons:
+    - payload: /get_bid_list
+      title: my bids
+    - payload: /modify_bid
+      title: modify a bid
+    - payload: /faq_bidding_process
+      title: bidding process
+    - payload: /ask_auction_schedule
+      title: auction schedule
+    text: How can I help you?
+  utter_default:
+  - text: I am sorry, I did not understand that. Could you please rephrase?
+  - text: Sorry, I am not sure what you mean. Please rephrase.
+  utter_out_of_scope:
+  - text: Sorry, I'm not sure how to respond to that. Type "help" for assistance.
+  utter_general_help:
+  - text: I can help you with the bidding process. You can ask me for general information about the bidding process or the auction schedule. I can also tell you about your current bids and help you make modifications.
+  utter_faq_bidding_process:
+  - text: The bidding is done in a silent auction. Each artwork has a minimum bid amount and you can submit a sealed bid for any value higher than the minimum. At the time of the auction, the user who submitted  the highest bid for an artwork wins it. You can submit bids for any number of artworks, but you can only submit one bid for an artwork. You can withdraw or modify any of your bids at any time until the bidding closes. If you win the auction, you must pay the amount specified in your winning bid.
+  utter_faq_number_of_bids:
+  - text: You can bid on any number of artworks you want, but you can only submit one bid per artwork. There is no limit to the number of users that can bid on the same artwork.
+  utter_faq_bid_modification_withdrawal:
+  - text: Until the bidding closes, you can withdraw or modify the value of any of your bids, as many times as you want. After the bidding closes, you will no longer be able to modify or withdraw any bids and will be obligated to pay the specified amount if your bid is the winning bid.
+  utter_faq_ask_about_tie:
+  - text: If there is a tie for the winning bid for an artwork at the time of the auction, the users who submitted the highest bid will receive an invitation to a private secondary auction, where they will be given the opportunity to increase their bid. The secondary auction ends when a clear winner can be determined.
+  utter_faq_privacy:
+  - text: All bids are sealed. This means that no one can know who bid on what artwork, or how much. Users can only access information about the number of bids submitted for an artwork. The bidder and value for each bid are kept private.
+  utter_accept_thanks:
+  - text: You are quite welcome.
+  - text: You are very welcome.
+  utter_bid_search_links:
+  - text: If you know the ID number of the artwork you wish to bid on, you can go directly to the [bidding portal](http://127.0.0.1:5000/bidding-portal). Otherwise, you can go to the [artwork search page](http://127.0.0.1:5000/search) to find artwork to bid on.
+  utter_withdraw_bid:
+  - text: To withdraw a bid, please go to the [bidding portal](http://127.0.0.1:5000/bidding-portal).
+  utter_confirm_request_cancel:
+  - text: No problem. Cancelling your request.
+  - text: Ok, request cancelled.
+  utter_ask_artwork_id:
+  - text: Please provide the artwork ID code (e.g. ABC123).
+actions:
+- action_auction_schedule
+- action_user_bid_list
+- action_num_bids_on_artwork
+- action_artwork_info_card
+- action_minimum_bid
+- action_ask_modify_bid_form_artwork_id
+- action_ask_modify_bid_form_bid_value
+- action_ask_modify_bid_form_confirm_form
+- action_submit_modify_bid
+forms:
+  modify_bid_form:
+    artwork_id:
+    - entity: artwork_id
+      intent:
+      - inform
+      - modify_bid
+      not_intent:
+      - ask_minimum_bid
+      - ask_num_bids_on_artwork
+      - ask_artwork_info_card
+      - get_bid_list
+      - withdraw_bid
+      type: from_entity
+    bid_value:
+    - entity: bid_value
+      intent: inform
+      not_intent: ask_minimum_bid
+      type: from_entity
+    confirm_form:
+    - intent: agree
+      type: from_intent
+      value: yes
+    - intent:
+      - disagree
+      - stop
+      type: from_intent
+      value: no
+  artwork_info_card_form:
+    artwork_id:
+    - entity: artwork_id
+      intent:
+      - inform
+      - ask_minimum_bid
+      - ask_num_bids_on_artwork
+      - ask_artwork_info_card
+      not_intent:
+      - modify_bid
+      - get_bid_list
+      - withdraw_bid
+      type: from_entity
+  num_bids_on_artwork_form:
+    artwork_id:
+    - entity: artwork_id
+      intent:
+      - inform
+      - ask_minimum_bid
+      - ask_num_bids_on_artwork
+      - ask_artwork_info_card
+      - modify_bid
+      not_intent:
+      - get_bid_list
+      - withdraw_bid
+      type: from_entity
+  minimum_bid_form:
+    artwork_id:
+    - entity: artwork_id
+      intent:
+      - inform
+      - ask_minimum_bid
+      - ask_num_bids_on_artwork
+      - ask_artwork_info_card
+      - modify_bid
+      not_intent:
+      - get_bid_list
+      - withdraw_bid
+      type: from_entity
+e2e_actions: []
