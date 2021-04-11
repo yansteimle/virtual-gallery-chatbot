@@ -2,6 +2,8 @@
 
 Course project created by Yan Steimle (7685882) for the course CSI 5180 at the University of Ottawa in the Winter 2021 session.
 
+The video for the project presentation is available here: https://youtu.be/ifD_88IljUg
+
 ### Contents
 
 - `gallery-assistant`: this folder contains the code and data for the chatbot (including the custom action server). The SQLite database is stored in the file `gallery.db`. The final trained model was too large to be uploaded. It is a .tar.gz file one cannot access without installing rasa and running the whole project anyway. To recover the final trained model, one simply creates a `gallery-assistant/models` subdirectory and calls `rasa train`. Since all of the stories and new training examples created during interactive learning with Rasa X were saved to the data files, it is possible to obtain an analogous bot to the one used for the demonstration by retraining the bot using all provided data.
