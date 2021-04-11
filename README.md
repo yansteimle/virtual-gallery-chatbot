@@ -4,7 +4,7 @@ Course project created by Yan Steimle (7685882) for the course CSI 5180 at the U
 
 ### Contents
 
-- `gallery-assistant`: this folder contains the code and data for the chatbot (including the custom action server). The SQLite database is stored in the file `gallery.db`. The final trained model is in the subdirectory `models`.
+- `gallery-assistant`: this folder contains the code and data for the chatbot (including the custom action server). The SQLite database is stored in the file `gallery.db`. The final trained model was too large to be uploaded (but it is a .tar.gz file one cannot access without installing rasa and running the whole project anyway. To recover the final trained model, one simply creates a `gallery-assistant/models` subdirectory and calls `rasa train`).
 - `virtual-gallery`: this folder contains the code, html files, and sample images for the rudimentary Virtual Gallery web application (which does absolutely nothing other than display html pages). The web application uses flask and (at least on my computer) is accessible at the following address when run locally: http://127.0.0.1:5000/ 
 - `project-presentation-Yan-Steimle.pdf`: this file contains the slides for the presentation (including any links to resources).
 
@@ -31,7 +31,7 @@ The code for the custom action server (using the Python Rasa SDK) is found in th
 
 ## Training the Chatbot
 
-Note that the custom action server is not used during training. Note also that the chatbot has already been trained and that the trained model is found in the `gallery-assistant/models` directory.
+Note that the custom action server is not used during training.
 
 To train the chatbot, one proceeds as follows:
 
