@@ -2,7 +2,8 @@
 
 Course project created by Yan Steimle (7685882) for the course CSI 5180 at the University of Ottawa in the Winter 2021 session.
 
-The video for the project presentation is available here: https://youtu.be/ifD_88IljUg
+The video for the project presentation is available here: https://youtu.be/SjXwglT-NB4
+Note that this is a re-upload of the original video. The content is unchanged, but the video quality is better.
 
 ### Contents
 
