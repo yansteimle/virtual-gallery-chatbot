@@ -1,6 +1,6 @@
 # Gabby: a Chatbot for a Virtual Art Gallery
 
-Course project created by Yan Steimle (7685882) for the course CSI 5180 at the University of Ottawa in the Winter 2021 session.
+Course project created by Yan Steimle for the course CSI 5180 at the University of Ottawa in the Winter 2021 session.
 
 The video for the project presentation is available here: https://youtu.be/SjXwglT-NB4
 
